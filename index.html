@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PhoneGap Isn't *Quite* As Bad As You Think - Dan Hough, for Mobilise, London </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Open Sans'; }
+      h1, h2, h3 {
+        font-weight: 700;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+      .large-summary {
+        font-size:2rem;
+      }
+      .large-summary img {
+        max-width:100%;
+        max-height:100%;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 25%;
+        height: 92%;
+        float: left;
+      }
+      .left-column h1 {
+        font-size:3rem;
+        color:#aaa;
+      }
+      .left-column h2:last-of-type, .left-column h3:last-child {
+        color: #000;
+      }
+
+      .left-column h3 {
+        font-size:1.2rem;
+      }
+
+      .right-column {
+        width: 70%;
+        float: right;
+      }
+
+      .right-column img {
+        width:100%;
+      }
+
+      .remark-slide-content {
+        padding:1rem 2rem;
+      }
+
+      .remark-slide-number {
+        opacity:0.1;
+        font-size:1rem;
+      }
+
+      .sub-header {
+        opacity:0.8;
+        font-size:1.5rem;
+      }
+
+      .sub-header p {
+        margin-bottom:0;
+      }
+
+      .sub-sub-header {
+        font-size:1.3rem;
+      }
+
+      .twitter {
+        font-weight:bold;
+      }
+
+      .gif-img img {
+        width:400px;
+        margin:1rem auto;
+      }
+      .autoimage img {
+        width:auto;
+      }
+
+      .remark-code {
+        overflow-x:scroll;
+      }
+
+      a:link, a:visited {
+        font-size:2rem;
+        font-weight:700;
+        color:black;
+      }
+
+      .corner-twitter {
+        position: absolute;
+        left:2rem;
+        bottom:1rem;
+        font-size:1rem;
+        opacity:0.4;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+layout:true
+name:main
+
+.corner-twitter[@basicallydan]
+
+---
+
+class: center, middle
+
+# PhoneGap Isn't *Quite* As Bad As You Think
+
+.sub-header[
+&hellip;according to Dan Hough, anyway
+.sub-sub-header[
+(direct your mid-talk heckles at .twitter[@basicallydan] on Twitter)
+]
+]
+
+---
+
+class: center, middle, large-summary
+
+template: main-template
+
+![Cordova Logo](cordova-logo.png)
+
+---
+
+class: center, middle, large-summary
+
+template: main-template
+
+![PhoneGap Logo](phonegap-logo.png)
+
+---
+
+class: center, middle, large-summary
+
+**Cordova:** Managed by Apache
+
+**PhoneGap:** Adobe Product, powered by Cordova
+
+---
+
+class: center, middle, large-summary
+
+**PhoneGap** has a slightly different command line interface.
+
+```
+$ phonegap local build android
+$ cordova build android
+```
+
+---
+
+class: center, middle, large-summary
+
+**Versions** don't always align:
+
+![PhoneGap and Cordova Versions](versions.png)
+
+---
+
+class: center, middle, large-summary
+
+They are **not** compatible
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+
+]
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+  ## Documentation
+]
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+  ## Documentation
+
+  ![PhoneGap Documentation](phonegap-target-device-docs.png)
+]
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+  ## Documentation
+
+  ![PhoneGap Documentation](cordova-target-device-docs.png)
+]
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+  ## "Oh hey there's a plugin! Yeah, we can do that!"
+]
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+  ## "Oh hey there's a plugin! Yeah, we can do that!"
+
+  .gif-img[
+    ![No](no.gif)
+  ]
+]
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+  ## Performance
+
+  * Android: Not bad
+  * iOS: Not good
+]
+
+---
+
+.left-column[
+  # Pitfalls & Issues
+]
+.right-column[
+  ## Automation
+
+  .autoimage[
+  ![World's largest gulpfile](gulpfile.png)
+
+  ]
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+## URL Whitelisting
+
+```
+<access origin="http://127.0.0.1*" />
+<access origin="*.my-rad-api.io*" />
+<access origin="*.airbrake.io*" />
+<access origin="*.amazonaws.com*" />
+```
+
+Please, do not forget to do this.
+
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+## Emulate the device using Chrome
+
+![Emulate your device in Chrome](chrome-emulator.png)
+
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+## Emulate the device using Chrome
+
+![Emulate your device in Chrome](chrome-emulator-iphone5.png)
+
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+## Refer to "PhoneGap" but use "Cordova"
+
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+## Refer to "PhoneGap" but use "Cordova"
+
+![Phonegap redirects to cordova](so-phonegap-redirect.gif)
+
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+## Turn off native input behaviour
+
+```
+<input type="text"
+  autocomplete="off"
+  autocorrect="off"
+  autocapitalize="off"
+  spellcheck="false">
+```
+
+]
+
+---
+
+.left-column[
+  # Tips
+]
+.right-column[
+
+## Document your plugins
+
+```js
+var pluginlist = [
+    "git://git.apache.org/cordova-plugin-device.git",
+    "git://git.apache.org/cordova-plugin-network-information.git",
+    "git://git.apache.org/cordova-plugin-inappbrowser.git",
+    "git://git.apache.org/cordova-plugin-vibration.git",
+    "git://git.apache.org/cordova-plugin-dialogs.git",
+    "com.red_folder.phonegap.plugin.backgroundservice",
+    "https://github.com/phonegap-build/PushPlugin",
+    "https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin.git",
+    "https://github.com/danwilson/google-analytics-plugin.git",
+    "https://github.com/phonegap/phonegap-facebook-plugin.git --variable APP_ID=\"131080860311719\" --variable APP_NAME=\"upmysport\""
+];
+```
+
+]
+
+---
+
+class: center, middle, large-summary
+
+# Should I use PhoneGap?
+
+---
+
+layout: true
+class: center, middle, large-summary
+
+.corner-twitter[@basicallydan]
+
+---
+
+![Decision Tree](tree/1.png)
+
+---
+
+![Decision Tree](tree/2.png)
+
+---
+
+![Decision Tree](tree/3.png)
+
+---
+
+![Decision Tree](tree/4.png)
+
+---
+
+![Decision Tree](tree/5.png)
+
+---
+
+![Decision Tree](tree/6.png)
+
+---
+
+![Decision Tree](tree/7.png)
+
+---
+
+![Decision Tree](tree/8.png)
+
+---
+
+![Decision Tree](tree/9.png)
+
+---
+
+![Decision Tree](tree/10.png)
+
+---
+
+![Decision Tree](tree/11.png)
+
+---
+
+![Decision Tree](tree/12.png)
+
+---
+
+![Decision Tree](tree/13.png)
+
+---
+
+## For a web developer who's short on time, a simple PhoneGap application is fine.
+
+---
+
+# The end.
+.sub-header[
+Thanks!
+.sub-sub-header[
+(Dan Hough - .twitter[@basicallydan] on Twitter)
+]
+]
+
+---
+
+class: center, middle
+
+# Pub Crawl: London
+
+.sub-header[
+<a href="http://pubcrawlapp.co.uk">pubcrawlapp.co.uk</a>
+]
+![Pub Crawl App](pub-crawl.png)
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
